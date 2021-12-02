@@ -1,3 +1,7 @@
-var div=document.createElement("iframe");
+var div = document.createElement("iframe");
+
+div.id = "kimiko-container";
+
 document.body.appendChild(div);
-div.src = "www.instagram.com";
+div.src = "http://localhost:3000";
+

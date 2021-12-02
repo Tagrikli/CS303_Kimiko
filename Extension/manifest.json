@@ -13,6 +13,7 @@
     {
 
            "matches": ["<all_urls>"],
+           "css":["content_css.css"],
            "js": ["content_script.js"] 
     }
 ],
