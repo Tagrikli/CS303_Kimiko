@@ -1,0 +1,1 @@
+import './sendMessageForm.scss';
