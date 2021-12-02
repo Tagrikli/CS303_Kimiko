@@ -1,0 +1,39 @@
+.message-list{
+
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+
+
+    .message-wrapper{
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: flex-start;
+        background-color: cornflowerblue;
+        margin-bottom: 1px;
+        padding: 1px;
+        text-align: start;
+
+        &:hover{
+            background-color: darken(cornflowerblue,10%);
+        }
+
+        .message-id{
+            font-weight: bold;
+            font-size: large;
+            padding: 5px;
+
+        }
+
+        .message-text{
+            font-size: x-large;
+            padding: 0px 5px 5px 5px;
+            flex-wrap: wrap;
+        }
+
+
+    }
+
+}
+

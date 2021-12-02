@@ -1,0 +1,17 @@
+.kimiko-header{
+
+    padding: 10px;
+    font-size: xx-large;
+    color: white;
+    letter-spacing: 5px;
+    user-select: none;
+    background-color: blue;
+    transition: 0.4s ease;
+
+    &:hover{
+        letter-spacing: 15px;
+        background-color: indigo;
+
+    }
+
+}
