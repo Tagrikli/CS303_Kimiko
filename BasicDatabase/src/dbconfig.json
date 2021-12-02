@@ -1,0 +1,5 @@
+{
+    "DATABASE":"kimikodb",
+    "USERS":"users",
+    "MESSAGES":"messages"
+}
