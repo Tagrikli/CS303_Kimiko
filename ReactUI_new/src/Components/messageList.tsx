@@ -1,5 +1,5 @@
 import React from "react";
-import './messageList.scss';
+import './scss/messageList.scss';
 
 export const DUMMY_DATA = [
 
@@ -60,25 +60,29 @@ type msgListProps = {
   messages: any[]
 }
 
-export default class MessageList extends React.Component<msgListProps, {}> {
 
-  render() {
-    return (
-      <div className="message-list">
-        {this.props.messages.map(message => {
-          return (
-            <div className="message-wrapper" key={message.id}>
-              <div className="message-id">
-                {message.senderId}
-              </div>
-              <div className="message-text">
-                {message.text}
-              </div>
+export default function MessageList(props: msgListProps) {
+
+
+  return (
+    <div className="message-list">
+      {props.messages.map(message => {
+        return (
+          <div className="message-wrapper" key={message.id}>
+            <div className="message-id">
+              {message.senderId}
             </div>
-          )
-        })}
-      </div>
-    )
-  }
+            <div className="message-text">
+              {message.text}
+            </div>
+          </div>
+        )
+      })}
+    </div>
+
+
+  )
+
 
 }
+

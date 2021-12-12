@@ -1,42 +1,37 @@
-import { timeStamp } from "console";
-import React from "react";
-import './sendMessageForm.scss';
+import React, { ChangeEventHandler, ReactHTMLElement, useState } from "react";
+import './scss/sendMessageForm.scss';
 
-class sendMessageForm extends React.Component {
-    constructor() {
-        super()
-        this.state = {
-            message: ''
-        }
-        this.handleChange = this.handleChange.bind(this)
-        this.handleSubmit = this.handleSubmit.bind(this)
-    }
 
-    handleChange(e) {
-        this.setState({
-            message: e.target.value
-        })
-    }
-
-    handleSubmit(e) {
-        e.preventDefault()
-        this.props.sendMessage(this.state.message)
-        this.setState({
-            message: ''
-        })
-    }
-
-    render() {
-        return (
-            <form
-                onSubmit={this.handleSubmit}
-                className="send-message-form">
-                <input
-                    onChange={this.handleChange}
-                    value={this.state.message}
-                    placeholder="Type your message and hit ENTER"
-                    type="text" />
-            </form>
-        )
-    }
+interface SendMessageFormProps {
+    sendMessage: (message: string) => void
 }
+
+export default function SendMessageForm(props: SendMessageFormProps) {
+
+    const [message, setMessage] = useState('');
+
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        props.sendMessage(message);
+        setMessage('');
+    }
+
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setMessage(e.target.value);
+    }
+
+    return (
+        <form
+            onSubmit={handleSubmit}
+            className="send-message-form">
+            <input
+                onChange={handleChange}
+                value={message}
+                placeholder="Type your message and hit ENTER"
+                type="text" />
+        </form>)
+
+}
+
+

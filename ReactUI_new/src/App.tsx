@@ -1,30 +1,30 @@
-import React from 'react';
-import './App.scss';
+import React, { useState } from 'react';
+import './scss/App.scss';
 import Header from './Components/header';
 import MessageList, { DUMMY_DATA } from './Components/messageList';
-import sendMessageForm from './Components/sendMessageForm';
+import SendMessageForm from './Components/sendMessageForm';
 
-class App extends React.Component<{},{messages: any[]}> {
+export default function App() {
 
-  constructor(props: {}) {
-    super(props);
-    this.state = {
-      messages: DUMMY_DATA
-    }
+
+  const [messages, setMessages] = useState(DUMMY_DATA);
+
+
+  const sendMessage = (message: string) => {
+
+    alert(message);
+
   }
 
-  render() {
-    return(
 
-      <div className="App">
-        <Header/>
-        <MessageList messages={this.state.messages}/>
-        <sendMessageForm sendMessage={this.sendMessage} />
-      </div>
+  return (
 
-    )
-  }
+    <div className="App">
+      <Header />
+      <MessageList messages={messages} />
+      <SendMessageForm sendMessage={sendMessage} />
+    </div>
+
+  )
 
 }
-
-export default App;
