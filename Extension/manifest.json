@@ -14,7 +14,8 @@
 
            "matches": ["<all_urls>"],
            "css":["content_css.css"],
-           "js": ["jquery-3.6.0.min.js","content_script.js"] 
+           "js": ["jquery-3.6.0.min.js","content_script.js"],
+           "run_at": "document_end"
     }
 ],
 
