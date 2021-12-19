@@ -1,37 +1,52 @@
 {
-    "name":"kimiko",
-    "description":"kimikos extension",
-    "manifest_version": 2,
-    "version": "0.0.1",
-
-    "background": {
-    
-        "scripts":["./background.js"]  
-    },
-
-    "content_scripts":[
+  "manifest_version": 3,
+  "version": "0.0.1",
+  "short_name": "Kimiko",
+  "name": "Here is Kimiko!",
+  "action": {
+    "default_title": "Kimiko"
+  },
+  "content_scripts": [
     {
-
-           "matches": ["<all_urls>"],
-           "css":["content_css.css"],
-           "js": ["jquery-3.6.0.min.js","content_script.js"],
-           "run_at": "document_end"
+      "js": [
+        "content/jquery-3.6.0.min.js",
+        "content/content.js"
+      ],
+      "css": [
+        "content/frame.css"
+      ],
+      "matches": [
+        "<all_urls>"
+      ],
+      "exclude_matches":[
+        "*://localhost/*",
+        "*://127.0.0.1/*"
+      ]
     }
-],
-
-    "browser_action":{
-
-        "default_popup": "popup.html"
-    },
-
-    "permissions":[
-        "tabs",
-        "storage",
-        "contextMenus",
-        "notifications",
-        "https://www.google.com/" 
-    ]
-
-
+  ],
+  "permissions": [
+    "tabs",
+    "storage",
+    "alarms",
+    "storage"
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "content/content.html"
+      ],
+      "matches": [
+        "<all_urls>"
+      ],
+      "extension_ids": [
+        "dgieeaibpglfbhcnbkcohceboddijpgn"
+      ]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' ;object-src 'self'"
+  }
 }
- 
