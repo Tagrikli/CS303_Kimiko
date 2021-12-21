@@ -5,6 +5,8 @@ import ConnManager from "./URLManager";
 
 
 const dbManager = new DatabaseManager();
+dbManager.connect().then(()=>console.log('Connected to database.'))
+
 const connManager = new ConnManager();
 
 

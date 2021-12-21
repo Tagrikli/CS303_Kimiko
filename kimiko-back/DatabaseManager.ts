@@ -17,7 +17,7 @@ class DatabaseManager {
 
     async connect() {
 
-        let client = new MongoClient(process.env.DATABASE_URL!, {
+        let client = new MongoClient(url, {
             useNewUrlParser: true,
             useUnifiedTopology: true
         });
