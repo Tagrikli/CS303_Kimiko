@@ -17,18 +17,18 @@ const WebSocketServer = new WebSocket.Server({ server: httpServer });
 
 const clientManager = new ClientManager();
 
-const BUILD_PATH = __dirname;
-console.log(BUILD_PATH);
+const BUILD_PATH = path.join(__dirname, path.sep, 'kimiko-side', 'build');
+const INDEX_PATH = path.join(BUILD_PATH,'index.html')
 
 app.use(cors());
-// app.use(express.static("/home/tagrikli/Desktop/Codes/Kimiko/kimiko-side/build"));
+// app.use(express.static(BUILD_PATH));
 
 // app.get("/", (req: any, res: express.Response) => {
 //     res.set({
 //         'Last-Modified': new Date(1990, 0, 0),
 //         'Content-Type': "text/html"
 //     });
-//     res.sendFile("/home/tagrikli/Desktop/Codes/Kimiko/kimiko-side/build/index.html");
+//     res.sendFile(INDEX_PATH);
 // });
 
 app.get("/kimiko/api/v1/profile/:absid([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})", (req: express.Request, res: express.Response) => {
@@ -74,7 +74,7 @@ function wsMessageHandler(client: WexSocket, event: MessageEvent<any>): void {
         if (message.Content) {
             let newProfile: UserInfo = message.Content;
             clientManager.updateProfile(client, newProfile);
-        
+
         }
     }
 }
