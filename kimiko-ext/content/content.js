@@ -16,7 +16,7 @@ var whereIsKimiko = "where-is-kimiko";
 var resizeProcess = "resizing-in-process";
 var defWidth = 320;
 var index = "index.html";
-var url = new URL("http://127.0.0.1:3000/");
+var url = new URL("http://127.0.0.1:5000/");
 var frame;
 var kimiko;
 var resizeBar;
