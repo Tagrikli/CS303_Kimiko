@@ -1,30 +1,34 @@
 import { Message, UserInfo, UserInfoMin, WexSocket } from "../kimiko-side/src/helpers/types";
 import { DB_CONSTS } from "../kimiko-side/src/helpers/vars";
-//const { Pool } = require('pg');
-import { Pool } from "pg";
-import MongoClient from "mongodb";
-var url = "mongodb://localhost:27017";
+import { MongoClient, Db, Collection } from "mongodb";
 
-const client = new MongoClient.MongoClient(url, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-})
-client.connect();
+//var url = "mongodb://localhost:27017";
+var url = `mongodb+srv://tagrikli:Tututug124.@cluster0.qt06w.mongodb.net/kimiko?retryWrites=true&w=majority`;
 
 
 class DatabaseManager {
 
-    database: MongoClient.Db;
-    profiles: MongoClient.Collection;
+    client: MongoClient | undefined;
+    database: Db | undefined;
+    profiles: Collection | undefined;
 
     constructor() {
-
-
-        this.database = client.db("mydb");
-        this.profiles = this.database.collection(DB_CONSTS.TABL_NAMES.PROFILE);
-
     }
 
+    async connect() {
+
+        let client = new MongoClient(process.env.DATABASE_URL!, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true
+        });
+        
+        this.client = await client.connect();
+        this.database = this.client.db("kimiko");
+        this.profiles = this.database.collection(DB_CONSTS.TABL_NAMES.PROFILE);
+        
+
+
+    }
 
     async registerUrl(hash: string) {
         console.info("registerUrl", hash);
@@ -34,7 +38,7 @@ class DatabaseManager {
     newMessage(absid: string, hash: string, content: Message) {
         let table = hash;
         //let query = `INSERT INTO "${table}" VALUES ($1::text,$2::text,$3::numeric)`;
-        let coll = this.database.collection(table.toString());
+        let coll = this.database!.collection(table.toString());
         coll.insertOne({ absid: absid, message: content.message, time: content.time });
 
     }
@@ -56,7 +60,7 @@ class DatabaseManager {
             }
 
         }
-        this.profiles.updateOne(filter, update, options);
+        this.profiles!.updateOne(filter, update, options);
     }
 
     async getFullProfile(absid: string) {
@@ -66,7 +70,7 @@ class DatabaseManager {
                 _id: 0
             }
         }
-        let res = await this.profiles.findOne(query, options);
+        let res = await this.profiles!.findOne(query, options);
         return res;
     }
 
@@ -82,13 +86,13 @@ class DatabaseManager {
                 [DB_CONSTS.COL_NAMES.BACKCOLOR]: 1,
             }
         }
-        return await this.profiles.findOne(query, options);
+        return await this.profiles!.findOne(query, options);
     }
 
 
     async fetchMessages(hash: string, limit: number) {
         console.debug("fetchMessages");
-        const coll = this.database.collection(hash.toString());
+        const coll = this.database!.collection(hash.toString());
         const query = {};
         const sort = { time: -1 };
         return await coll.find(query).limit(limit).sort(sort).toArray();
