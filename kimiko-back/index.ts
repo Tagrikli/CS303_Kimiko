@@ -2,8 +2,8 @@ import express, { RequestHandler, Response } from 'express';
 import http from 'http';
 import https from 'https';
 import WebSocket from 'ws';
-var cors = require('cors');
-const path = require("path");
+import cors from 'cors';
+import path from 'path'
 
 
 import { MsgType, WsMessage_Server, UserInfo, WsMessage_Client, Message, WexSocket } from '../kimiko-side/src/helpers/types';
@@ -17,6 +17,8 @@ const WebSocketServer = new WebSocket.Server({ server: httpServer });
 
 const clientManager = new ClientManager();
 
+const BUILD_PATH = __dirname;
+console.log(BUILD_PATH);
 
 app.use(cors());
 // app.use(express.static("/home/tagrikli/Desktop/Codes/Kimiko/kimiko-side/build"));
