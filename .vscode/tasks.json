@@ -4,14 +4,14 @@
             "label": "Copy Kimiko-Common",
             "type": "shell",
             "command": [
-                "cp -r kimiko-common ./kimiko-side/src/; cp -r kimiko-common ./kimiko-back/"
+                "cp -R kimiko-common ./kimiko-side/src/; cp -R kimiko-common ./kimiko-back/"
             ]
         },
         {
             "label": "Prepare Production",
             "type": "shell",
             "command": [
-                "npm run build --prefix kimiko-side; cp -r ./kimiko-side/build ./kimiko-back"
+                "npm run build --prefix kimiko-side; cp -TR ./kimiko-side/build ./kimiko-back"
             ]
         },
         {

@@ -89,10 +89,9 @@ WebSocketServer.on('connection', (webSocket: WexSocket) => {
     webSocket.onclose = (event) => { wsCloseHandler(webSocket, event) }
 });
 
-const PORT = process.env.PORT;
 
-httpServer.listen(PORT || WS_CONF.port, () => {
-    console.log(`Server started on port ${PORT || WS_CONF.port} :)`);
+httpServer.listen(WS_CONF.port || 8080, () => {
+    console.log(`Server started on port ${WS_CONF.port || 8080} :)`);
 });
 
 
