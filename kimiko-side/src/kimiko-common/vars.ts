@@ -2,7 +2,7 @@ export const INPUT_CONSTS = {
     USERNAME: 30,
     SOCIAL: 50,
     BIO: 100,
-    MESSAGE: 50
+    MESSAGE: 50 
 }
 
 
@@ -14,7 +14,7 @@ export const DB_CONSTS = {
         BIO: "bio",
         EMAIL: "email",
         SOCIALS: "socials",
-        BACKCOLOR: "backcolor"
+        BACKCOLOR:"backcolor"
     },
     TABL_NAMES: {
         PROFILE: "profiles"
@@ -24,7 +24,7 @@ export const DB_CONSTS = {
 export const BASE_CONF = {
     scheme: "http",
     host: "127.0.0.1",
-    port: process.env.PORT,
+    port: "5000",
     path: "",
     full: function () {
         return `${this.scheme}://${this.host}:${this.port}/${this.path}`;
@@ -34,7 +34,7 @@ export const BASE_CONF = {
 export const WS_CONF = {
     scheme: "ws",
     host: "127.0.0.1",
-    port: process.env.PORT,
+    port: "5000",
     path: "",
     full: function () {
         return `${this.scheme}://${this.host}:${this.port}/${this.path}`;
