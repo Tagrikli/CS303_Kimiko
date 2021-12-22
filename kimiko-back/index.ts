@@ -18,19 +18,18 @@ const WebSocketServer = new WebSocket.Server({ server: httpServer });
 const clientManager = new ClientManager();
 
 const BUILD_PATH = path.join(__dirname, 'build');
-console.log(BUILD_PATH);
 const INDEX_PATH = path.join(BUILD_PATH, 'index.html')
 
 app.use(cors());
-// app.use(express.static(BUILD_PATH));
+app.use(express.static(BUILD_PATH));
 
-// app.get("/", (req: any, res: express.Response) => {
-//     res.set({
-//         'Last-Modified': new Date(1990, 0, 0),
-//         'Content-Type': "text/html"
-//     });
-//     res.sendFile(INDEX_PATH);
-// });
+app.get("/", (req: any, res: express.Response) => {
+    res.set({
+        'Last-Modified': new Date(1990, 0, 0),
+        'Content-Type': "text/html"
+    });
+    res.sendFile(INDEX_PATH);
+});
 
 app.get("/kimiko/api/v1/profile/:absid([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})", (req: express.Request, res: express.Response) => {
     let absid = req.params.absid;

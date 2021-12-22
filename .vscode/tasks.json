@@ -15,7 +15,7 @@
             ]
         },
         {
-            "label": "Push to Heroku",
+            "label": "Publish Kimiko-Back to Heroku",
             "type": "shell",
             "command": [
                 "git subtree push --prefix kimiko-back heroku master"

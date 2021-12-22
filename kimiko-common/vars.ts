@@ -24,7 +24,7 @@ export const DB_CONSTS = {
 export const BASE_CONF = {
     scheme: "http",
     host: "127.0.0.1",
-    port: "3000",
+    port: "5000",
     path: "",
     full: function () {
         return `${this.scheme}://${this.host}:${this.port}/${this.path}`;
