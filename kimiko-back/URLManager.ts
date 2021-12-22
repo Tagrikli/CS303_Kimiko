@@ -1,4 +1,4 @@
-import { WexSocket } from "../kimiko-common";
+import { WexSocket } from "../kimiko-common/types";
 
 class ConnManager {
     pairs: {

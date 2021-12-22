@@ -1,0 +1,19 @@
+{
+    "tasks": [
+        {
+            "label": "Copy Kimiko-Common",
+            "type": "shell",
+            "command": [
+                "cp -r kimiko-common ./kimiko-side/src/; cp -r kimiko-common ./kimiko-back/"
+            ]
+        },
+        {
+            "label": "Push to Heroku",
+            "type": "shell",
+            "command": [
+                "git subtree push --prefix kimiko-back heroku master"
+            ]
+        },
+
+    ]
+}
