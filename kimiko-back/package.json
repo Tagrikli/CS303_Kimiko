@@ -189,12 +189,5 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@types/chrome": "^0.0.171",
-    "@types/filesystem": "^0.0.32",
-    "@types/filewriter": "^0.0.29",
-    "@types/har-format": "^1.2.8",
-    "@types/jquery": "^3.5.10"
-  }
+  "license": "ISC"
 }
