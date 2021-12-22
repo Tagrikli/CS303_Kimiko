@@ -8,6 +8,13 @@
             ]
         },
         {
+            "label": "Prepare Production",
+            "type": "shell",
+            "command": [
+                "npm run build --prefix kimiko-side; cp -r ./kimiko-side/build ./kimiko-back"
+            ]
+        },
+        {
             "label": "Push to Heroku",
             "type": "shell",
             "command": [

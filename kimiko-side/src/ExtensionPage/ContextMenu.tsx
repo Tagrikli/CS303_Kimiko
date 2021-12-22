@@ -2,9 +2,10 @@ import React from 'react';
 
 
 
-class ContMenuItem extends React.Component<{onClick?:any},{}>{
-    constructor(props:any) {
+class ContMenuItem extends React.Component<{ onClick?: any }, {}>{
+    constructor(props: any) {
         super(props);
+        
     }
 
     render() {
@@ -20,7 +21,7 @@ class ContMenuItem extends React.Component<{onClick?:any},{}>{
 
 
 interface Props {
-    funcs:any,
+    funcs: any,
     poses: {
         top: number | undefined,
         left: number | undefined
@@ -36,7 +37,7 @@ class ContextMenu extends React.Component<Props, {}>{
         this.onClick = this.onClick.bind(this);
     }
 
-    onClick(e:any) {
+    onClick(e: any) {
         //e.preventDefault();
     }
 

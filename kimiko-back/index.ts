@@ -17,7 +17,8 @@ const WebSocketServer = new WebSocket.Server({ server: httpServer });
 
 const clientManager = new ClientManager();
 
-const BUILD_PATH = path.join(__dirname, path.sep, 'kimiko-side', 'build');
+const BUILD_PATH = path.join(__dirname, 'build');
+console.log(BUILD_PATH);
 const INDEX_PATH = path.join(BUILD_PATH, 'index.html')
 
 app.use(cors());
