@@ -17,7 +17,7 @@ var resizeProcess = "resizing-in-process";
 var defWidth = 320;
 var index = "index.html";
 var url = new URL("http://127.0.0.1:8000/"); //Development
-//var url = new URL("https://cs308-kimiko.herokuapp.com/"); //Development
+var url = new URL("https://cs308-kimiko.herokuapp.com/"); //Development
 
 var frame;
 var kimiko;

@@ -23,7 +23,7 @@ export const DB_CONSTS = {
 
 export var BASE_CONF = {
     scheme: "http",
-    host: "localhost",
+    host: "127.0.0.1",
     port: "",
     path: "",
     full: function () {
@@ -33,7 +33,7 @@ export var BASE_CONF = {
 
 export var WS_CONF = {
     scheme: "ws",
-    host: "localhost",
+    host: "127.0.0.1",
     port: "",
     path: "",
     full: function () {
