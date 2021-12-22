@@ -6,7 +6,7 @@ import cors from 'cors';
 import path from 'path';
 
 
-import { MsgType, UserInfo, WsMessage_Client, WexSocket } from '../kimiko-common/types';
+import { MsgType, UserInfo, WsMessage_Client, WexSocket } from './kimiko-common/types';
 import { WS_CONF } from './kimiko-common/vars';
 import ClientManager from './ClientManager';
 const murmur = require("murmurhash-js");
