@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Kimiko from './ExtensionPage/Kimiko';
 import reportWebVitals from './reportWebVitals';
-import { WinMsgType} from './kimiko-common/types';
+import { WinMsgType } from './kimiko-common/types';
 import { WS_CONF } from './kimiko-common/vars';
 
 import Profile from "./helpers/Profile";
@@ -11,34 +11,44 @@ import { MySocket, MyWindow } from "./helpers/Messenger";
 
 let profile = new Profile();
 
-let Socket = new MySocket(WS_CONF.full());
+fetch('/kimiko/api/v1/port').then(res => res.text()).then(port => {
+
+  console.log(port);
+
+  WS_CONF.port = port || "8080";
+  let Socket = new MySocket(WS_CONF.full());
+
+  Socket.waitForConnection().then(() => {
 
 
-Socket.waitForConnection().then(() => {
-  
+    let WinMessenger = new MyWindow(profile);
+    let kimiko =
+      <Kimiko
+        socket={Socket}
+        profile={profile}
+        winmessenger={WinMessenger}
+      />
+      ;
 
-  let WinMessenger = new MyWindow(profile);
-  let kimiko =
-    <Kimiko
-      socket={Socket}
-      profile={profile}
-      winmessenger={WinMessenger}
-    />
-    ;
-  
-  window.addEventListener("message", (event) => { WinMessenger.handler(event, profile, Socket) });
-  WinMessenger.sendMessage({ Type: WinMsgType.INIT, Content: "" });
-  
-  
-  ReactDOM.render(
-    <React.StrictMode>
-      {kimiko}
-    </React.StrictMode>,
-    document.getElementById('root')
-  );
+    window.addEventListener("message", (event) => { WinMessenger.handler(event, profile, Socket) });
+    WinMessenger.sendMessage({ Type: WinMsgType.INIT, Content: "" });
+
+
+    ReactDOM.render(
+      <React.StrictMode>
+        {kimiko}
+      </React.StrictMode>,
+      document.getElementById('root')
+    );
+
+
+  })
+
 
 
 })
+
+
 
 
 

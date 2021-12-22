@@ -30,6 +30,9 @@ app.get("/", (req: any, res: express.Response) => {
     res.sendFile(INDEX_PATH);
 });
 
+app.get("/kimiko/api/v1/port", (req, res) => {
+    res.send(process.env.PORT);
+})
 
 app.get("/kimiko/api/v1/profile/:absid([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})", (req: express.Request, res: express.Response) => {
     let absid = req.params.absid;
@@ -89,9 +92,10 @@ WebSocketServer.on('connection', (webSocket: WexSocket) => {
     webSocket.onclose = (event) => { wsCloseHandler(webSocket, event) }
 });
 
+WS_CONF.port = process.env.PORT || "8080";
 
-httpServer.listen(WS_CONF.port || 8080, () => {
-    console.log(`Server started on port ${WS_CONF.port || 8080} :)`);
+httpServer.listen(WS_CONF.port, () => {
+    console.log(`Server started on port ${WS_CONF.port} :)`);
 });
 
 

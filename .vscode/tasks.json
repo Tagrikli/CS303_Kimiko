@@ -11,7 +11,7 @@
             "label": "Prepare Production",
             "type": "shell",
             "command": [
-                "npm run build --prefix kimiko-side; cp -TR ./kimiko-side/build ./kimiko-back"
+                "npm run build --prefix kimiko-side; cp -R ./kimiko-side/build ./kimiko-back"
             ]
         },
         {

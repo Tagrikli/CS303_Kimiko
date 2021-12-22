@@ -6,8 +6,9 @@ import Profile from "./Profile";
 class MySocket extends WebSocket {
     emitter = new EventEmitter();
 
-    constructor(url: string) {
+    constructor(url: string) {        
         super(url);
+        console.log(url);
         this.onmessage = this.incomeMessage;
     }
 

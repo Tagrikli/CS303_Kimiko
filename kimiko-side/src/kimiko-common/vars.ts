@@ -21,20 +21,20 @@ export const DB_CONSTS = {
     }
 }
 
-export const BASE_CONF = {
+export var BASE_CONF = {
     scheme: "http",
-    host: "127.0.0.1",
-    port: process.env.PORT,
+    host: "localhost",
+    port: "",
     path: "",
     full: function () {
         return `${this.scheme}://${this.host}:${this.port}/${this.path}`;
     }
 }
 
-export const WS_CONF = {
+export var WS_CONF = {
     scheme: "ws",
-    host: "127.0.0.1",
-    port: process.env.PORT,
+    host: "localhost",
+    port: "",
     path: "",
     full: function () {
         return `${this.scheme}://${this.host}:${this.port}/${this.path}`;
