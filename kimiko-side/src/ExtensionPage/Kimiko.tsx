@@ -1,16 +1,16 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import './App.scss';
 import Header from './Header';
 import Mesagon from './Mesagon';
 import Inputue from './Inputue';
 import Settings from './Settings/Settings';
 import StrangerProfile from './StrangerProfile/StrangerProfile';
-import { Message, MsgType, WinMsgType, WsMessage_Client, WsMessage_Server } from '../helpers/types';
+import { Message, MsgType, WinMsgType } from '../kimiko-common/types';
+
+
 import { MySocket, MyWindow } from '../helpers/Messenger';
 import Profile from '../helpers/Profile';
 import { CSSTransition } from 'react-transition-group';
-import { ClientId } from "../helpers/vars";
 import ContextMenu from './ContextMenu';
 
 interface Aprop {

@@ -1,7 +1,7 @@
 import React from 'react';
 import './Settings.scss';
 import Profile, { ProfileIds } from '../../helpers/Profile';
-import { INPUT_CONSTS } from '../../helpers/vars';
+import { INPUT_CONSTS } from '../../kimiko-common/vars';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconName, library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
@@ -173,7 +173,7 @@ class Settings extends React.Component<AProp, AState> {
         if (files) {
             reader.readAsDataURL(files[0]);
             reader.onload = () => {
-                let res = reader.result;
+                //let res = reader.result;
 
                 const canvas = document.createElement('canvas')
                 const img = document.createElement('img');

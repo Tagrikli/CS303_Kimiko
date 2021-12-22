@@ -1,14 +1,9 @@
+
 export interface WinMessage {
     Type: WinMsgType,
     Content: any
 }
 
-export enum WinMsgType {
-    INIT,
-    PROF_REQ,
-    PROF_UPD,
-    PROF_REF
-}
 
 export interface WexSocket extends WebSocket {
     kimiko_absid: string;
@@ -16,6 +11,8 @@ export interface WexSocket extends WebSocket {
     kimiko_url: string;
     kimiko_hashed: string;
 }
+
+
 
 export interface DBMessage {
     absid: string,
@@ -33,14 +30,7 @@ export interface Message {
 }
 
 
-export enum MsgType {
-    INIT,
-    MSG,
-    HIST,
-    PRF_UPD,
-    PRF_REQ,
-    CO_UPD
-}
+
 
 export interface UserInfo {
     avatar: any;
@@ -77,6 +67,21 @@ export interface WsMessage_Server {
     Content?: any;
 }
 
+export enum WinMsgType {
+    INIT,
+    PROF_REQ,
+    PROF_UPD,
+    PROF_REF
+}
+
+export enum MsgType {
+    INIT,
+    MSG,
+    HIST,
+    PRF_UPD,
+    PRF_REQ,
+    CO_UPD
+}
 
 
 

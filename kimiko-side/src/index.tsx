@@ -2,10 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Kimiko from './ExtensionPage/Kimiko';
 import reportWebVitals from './reportWebVitals';
-import { WinMsgType } from './helpers/types';
+import { WinMsgType} from './kimiko-common/types';
+import { WS_CONF } from './kimiko-common/vars';
+
 import Profile from "./helpers/Profile";
 import { MySocket, MyWindow } from "./helpers/Messenger";
-import { WS_CONF } from './helpers/vars';
 
 
 let profile = new Profile();

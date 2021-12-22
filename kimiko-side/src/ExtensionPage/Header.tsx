@@ -1,4 +1,4 @@
-import { BASE_CONF } from "../helpers/vars";
+import { BASE_CONF } from '../kimiko-common/vars';
 
 function Header() {
 

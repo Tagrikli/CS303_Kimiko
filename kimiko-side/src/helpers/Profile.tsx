@@ -1,5 +1,5 @@
 import { v4 } from "uuid";
-import { UserInfo } from "./types";
+import { UserInfo } from "../../../kimiko-common";
 import ProfileIds from "./accounts.json";
 
 export { ProfileIds };

@@ -3,11 +3,11 @@ import http from 'http';
 import https from 'https';
 import WebSocket from 'ws';
 import cors from 'cors';
-import path from 'path'
+import path from 'path';
 
 
-import { MsgType, WsMessage_Server, UserInfo, WsMessage_Client, Message, WexSocket } from '../kimiko-side/src/helpers/types';
-import { BASE_CONF, WS_CONF } from '../kimiko-side/src/helpers/vars';
+import { MsgType, UserInfo, WsMessage_Client, WexSocket } from '../kimiko-common/types';
+import { WS_CONF } from './kimiko-common/vars';
 import ClientManager from './ClientManager';
 const murmur = require("murmurhash-js");
 
@@ -18,7 +18,7 @@ const WebSocketServer = new WebSocket.Server({ server: httpServer });
 const clientManager = new ClientManager();
 
 const BUILD_PATH = path.join(__dirname, path.sep, 'kimiko-side', 'build');
-const INDEX_PATH = path.join(BUILD_PATH,'index.html')
+const INDEX_PATH = path.join(BUILD_PATH, 'index.html')
 
 app.use(cors());
 // app.use(express.static(BUILD_PATH));

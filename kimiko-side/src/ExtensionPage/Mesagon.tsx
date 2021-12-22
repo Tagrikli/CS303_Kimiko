@@ -1,5 +1,5 @@
 import React from 'react';
-import { Message, UserInfoMin } from '../helpers/types';
+import { Message, UserInfoMin } from '../kimiko-common/types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 
@@ -13,7 +13,7 @@ function Amesago(props: any) {
     let username = content.username ? content.username : "A_User";
     let color = content.backcolor;
     let message = content.message;
-    let time = content.time;
+    //let time = content.time;
     const getProfile = () => {
         props.strangerRequest(content.absid);
     };

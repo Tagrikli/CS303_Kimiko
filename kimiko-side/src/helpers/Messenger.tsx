@@ -1,5 +1,5 @@
 import { EventEmitter } from "events";
-import { WsMessage_Client, MsgType, WinMessage, WinMsgType, Message, WsMessage_Server } from "./types";
+import { WsMessage_Client, MsgType, WinMessage, WinMsgType, Message, WsMessage_Server } from "../kimiko-common/types";
 import Profile from "./Profile";
 
 

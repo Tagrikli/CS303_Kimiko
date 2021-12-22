@@ -1,0 +1,11 @@
+{
+    "emeraldwalk.runonsave": {
+        "autoClearConsole": true,
+        "commands": [
+            {
+                "match": "kimiko-common/*.*",
+                "cmd": "cp -r kimiko-common ./kimiko-side/src/; cp -r kimiko-common ./kimiko-back/"
+            },
+        ]
+    }
+}

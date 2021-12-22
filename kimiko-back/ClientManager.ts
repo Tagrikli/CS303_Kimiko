@@ -1,5 +1,5 @@
-import { DB_CONSTS } from "../kimiko-side/src/helpers/vars";
-import { DBMessage, Message, MsgType, UserInfo, UserInfoMin, WexSocket, WsMessage_Server } from "../kimiko-side/src/helpers/types";
+import { DB_CONSTS } from "./kimiko-common/vars";
+import { DBMessage, Message, MsgType, UserInfo, UserInfoMin, WexSocket, WsMessage_Server } from "../kimiko-common/types";
 import DatabaseManager from "./DatabaseManager";
 import ConnManager from "./URLManager";
 

@@ -1,8 +1,5 @@
 import React from 'react';
-import { INPUT_CONSTS } from '../helpers/vars';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
-
+import { INPUT_CONSTS } from '../kimiko-common/vars';
 
 interface Props {
     newInput: any;
