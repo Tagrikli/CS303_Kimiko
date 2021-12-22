@@ -27,7 +27,6 @@ class ClientManager {
             let absid = dbmessage.absid;
             let user: UserInfoMin = await dbManager.getMessageProfile(absid);
 
-            console.log(user);
             
 
             messages.push(<Message>{
@@ -66,7 +65,6 @@ class ClientManager {
             msg.backcolor = profile[DB_CONSTS.COL_NAMES.BACKCOLOR];
         }
 
-        console.log(msg.backcolor);
 
         let wsMessage: WsMessage_Server = { Type: MsgType.MSG, Content: msg };
         for (let client of clients) {

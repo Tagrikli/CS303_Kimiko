@@ -14,7 +14,6 @@ function AmediaSocial(props: { disabled: boolean, onChange: any, data: { id: str
 
     const mouseEnter = (e: React.BaseSyntheticEvent<any>) => {
         let target = e.target;
-        console.log("GİRDİİ AHHH OHH");
         if (target.classList.contains("Amedia-Social")) {
             target.style.backgroundColor = props.data.backColor;
         }

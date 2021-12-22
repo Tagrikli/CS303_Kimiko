@@ -95,7 +95,7 @@ WebSocketServer.on('connection', (webSocket: WexSocket) => {
 WS_CONF.port = process.env.PORT || "8080";
 
 httpServer.listen(WS_CONF.port, () => {
-    console.log(`Server started on port ${WS_CONF.port} :)`);
+    console.log(`Server started on port ${WS_CONF.port}`);
 });
 
 

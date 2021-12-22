@@ -72,7 +72,6 @@ class StrangerProfile extends React.Component<Props, {}> {
             let link = "profileLink" in value ? value.profileLink : "";
 
             if (val) {
-                console.log(key);
                 socials.push(<AmediaSocial key={key} data={value} value={val} ></AmediaSocial>);
             }
         }

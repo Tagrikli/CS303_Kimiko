@@ -13,10 +13,8 @@ let profile = new Profile();
 
 fetch('/kimiko/api/v1/port').then(res => res.text()).then(port => {
 
-  console.log(port);
 
-  WS_CONF.port = port || "8080";
-  let Socket = new MySocket(WS_CONF.full());
+  let Socket = new MySocket();
 
   Socket.waitForConnection().then(() => {
 
@@ -54,10 +52,5 @@ fetch('/kimiko/api/v1/port').then(res => res.text()).then(port => {
 
 
 
-
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
 

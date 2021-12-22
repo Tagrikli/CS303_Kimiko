@@ -6,16 +6,13 @@ import Profile from "./Profile";
 class MySocket extends WebSocket {
     emitter = new EventEmitter();
 
-    constructor(url: string) {        
-        //super(url);
+    constructor() {        
         super("wss://cs308-kimiko.herokuapp.com/")
-        console.log(url);
         this.onmessage = this.incomeMessage;
     }
 
     sendMessage(msg: WsMessage_Client): void {
 
-        console.log('Message Sent');
 
         super.send(JSON.stringify(msg));
     }
@@ -35,7 +32,6 @@ class MySocket extends WebSocket {
                     resolve();
                 }
                 currentAttempt++
-                console.log('Attempt',currentAttempt);
                 
             }, intervalTime)
         })
@@ -86,7 +82,6 @@ class MyWindow {
             profile.AbsId = payload.Content.uuid;
             let url = new URL(payload.Content.location);
             profile.location = url.host + url.pathname + url.search;
-            console.log(profile.location);
             socket.sendMessage({ Type: MsgType.INIT, Rel: profile.RelId, Abs: profile.AbsId, Content: profile.location });
             this.emitter.emit("profile-refresh", profile);
 

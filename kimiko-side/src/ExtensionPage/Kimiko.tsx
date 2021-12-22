@@ -123,17 +123,14 @@ class App extends React.Component<Aprop, Astate> {
 
   contextMenuHandler(e: React.MouseEvent<HTMLDivElement>) {
     e.preventDefault();
-    console.log(e);
     this.setState({ context: { state: true, top: e.clientY, left: e.clientX } });
 
   }
 
   onStrangerProfileRequest(absid: string) {
-    console.log(absid);
     fetch(`http://localhost:5000/kimiko/api/v1/profile/${absid}`)
       .then(resp => resp.json())
       .then((data: Profile) => {
-        console.log(data);
         this.setState({ strangerProfile: data, profileMode: true });
       }).catch(reason => { console.log(reason) });
   }
