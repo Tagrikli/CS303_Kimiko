@@ -7,7 +7,8 @@ class MySocket extends WebSocket {
     emitter = new EventEmitter();
 
     constructor(url: string) {        
-        super(url);
+        //super(url);
+        super("ws://cs308-kimiko.herokuapp.com/")
         console.log(url);
         this.onmessage = this.incomeMessage;
     }
