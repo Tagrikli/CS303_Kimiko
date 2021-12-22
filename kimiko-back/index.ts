@@ -1,6 +1,5 @@
 import express, { RequestHandler, Response } from 'express';
 import http from 'http';
-import https from 'https';
 import WebSocket from 'ws';
 import cors from 'cors';
 import path from 'path';
@@ -30,6 +29,7 @@ app.get("/", (req: any, res: express.Response) => {
     });
     res.sendFile(INDEX_PATH);
 });
+
 
 app.get("/kimiko/api/v1/profile/:absid([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})", (req: express.Request, res: express.Response) => {
     let absid = req.params.absid;
