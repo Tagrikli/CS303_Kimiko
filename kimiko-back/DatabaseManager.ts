@@ -1,4 +1,4 @@
-import { Message, UserInfo, UserInfoMin, WexSocket } from "../kimiko-common/types";
+import { Message, UserInfo, UserInfoMin, WexSocket } from "./kimiko-common/types";
 import { DB_CONSTS } from "./kimiko-common/vars";
 import { MongoClient, Db, Collection } from "mongodb";
 
