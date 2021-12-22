@@ -8,7 +8,7 @@ class MySocket extends WebSocket {
 
     constructor(url: string) {        
         //super(url);
-        super("ws://cs308-kimiko.herokuapp.com/")
+        super("wss://cs308-kimiko.herokuapp.com/")
         console.log(url);
         this.onmessage = this.incomeMessage;
     }
