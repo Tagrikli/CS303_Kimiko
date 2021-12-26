@@ -128,7 +128,7 @@ class App extends React.Component<Aprop, Astate> {
   }
 
   onStrangerProfileRequest(absid: string) {
-    fetch(`http://localhost:5000/kimiko/api/v1/profile/${absid}`)
+    fetch(`/kimiko/api/v1/profile/${absid}`)
       .then(resp => resp.json())
       .then((data: Profile) => {
         this.setState({ strangerProfile: data, profileMode: true });
